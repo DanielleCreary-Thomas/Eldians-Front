@@ -1,0 +1,6 @@
+.label{
+    padding-right: 25px;
+}
+.rotate{
+    transform: rotateY(180deg);
+  }

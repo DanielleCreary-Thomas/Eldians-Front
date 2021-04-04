@@ -1,0 +1,61 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="space-between center" class="page">
+
+    <div fxLayout="column" fxLayoutAlign="space-between center">
+        <mat-label class="title">Eldians Login</mat-label>
+        <mat-card>
+            <div>
+                <p>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input formControlName="username" matInput placeholder="Enter your Username" required>
+                    </mat-form-field>
+                </p>
+                <!-- <p>
+                    <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput placeholder="Enter your Password" type='password'>
+                    </mat-form-field>
+                </p> -->
+                <p fxLayout = "column" FxLayoutAlign = "center center">
+                    <button (click)="login()" mat-raised-button color="primary" [disabled]="this.isLoginEnabled()">Login</button>  
+                </p>
+            </div>
+            
+        </mat-card>
+        <p></p>
+        <mat-card fxLayout = "row" FxLayoutAlign = "center center" >
+            
+            <div>
+                <p>
+                    <mat-label class="rolesField"> Submit files before logging in.</mat-label>
+                </p>
+                <p class="filebox">
+                    <label class="label" for="file">Choose Games File</label>
+                    <input type="file"
+                        id="file"
+                        (change)="handleGameInput($event.target.files)">
+                </p>
+                <p>
+                    <label class="label" for="file">Choose Users File</label>
+                    <input type="file"
+                        id="file"
+                        (change)="handleUserInput($event.target.files)">
+                </p>
+                <p>
+                    <label class="label" for="file">Choose Marketplace File</label>
+                    <input type="file"
+                        id="file"
+                        (change)="handleMarketInput($event.target.files)">
+                </p>
+                <button (click)="downloadDaily()" mat-raised-button color="primary">Download Daily</button>
+            </div>
+            
+        </mat-card>
+        
+        
+    </div>
+</form>>
+
+

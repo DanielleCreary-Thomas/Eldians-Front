@@ -1,0 +1,150 @@
+<mat-card [formGroup] = "adminForm" fxFill>
+    <div fxFlex = "100%"> 
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Create</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                <mat-form-field appearance="fill" class = "label">
+                    <mat-label>Username</mat-label>
+                    <mat-hint> Max 15 Characters</mat-hint>
+                    <input formControlName = "createUsername" matInput>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill"  class ="label" >
+                    <mat-label>User Type</mat-label>
+                    <mat-select formControlName = "createType">
+                    <mat-option value="AA">Admin</mat-option>
+                    <mat-option value="FS">Full Standard</mat-option>
+                    <mat-option value="BS">Buy Standard</mat-option>
+                    <mat-option value="SS">Sell Standard</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Balance</mat-label>
+                    <input formControlName = "createBalance" matInput>
+                    <mat-hint>Max of $999999.99</mat-hint>
+                </mat-form-field>
+
+                <button mat-stroked-button color="primary" (click)="constructCreateLine()">Submit</button>
+            </div>
+                
+        </mat-card>
+
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Delete</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+
+                    <input type="text"
+                        formControlName = "deleteUsername" matInput>
+                        
+                </mat-form-field>
+                
+                <button mat-stroked-button color="primary" (click)="constructDeleteLine()">Submit</button>
+            </div>
+        </mat-card>
+
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Refund</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Seller Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+                    <input formControlName = "refundSeller" matInput>
+                    </mat-form-field>
+    
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Buyer Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+                    <input formControlName = "refundBuyer" matInput>
+                    </mat-form-field>
+                    
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Amount</mat-label>
+                    <input formControlName = "refundAmount" matInput >
+                    </mat-form-field>
+
+                <button mat-stroked-button color="primary" (click)="constructRefundLine()">Submit</button>
+            </div>
+        </mat-card>
+
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Gift</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Giver Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+                    <input formControlName = "giftGiver" matInput>
+                    </mat-form-field>
+    
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Recepient Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+                    <input formControlName = "giftRecipient" matInput>
+                    </mat-form-field>
+                    
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Game Name</mat-label>
+                    <mat-hint>Max of 25 Characters</mat-hint>
+                    <input formControlName = "giftGameName" matInput >
+                    </mat-form-field>
+
+            <button mat-stroked-button color="primary" (click)="constructGiftLine()">Submit</button>
+        </div>
+        </mat-card>
+
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Remove Game</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Game Name</mat-label>
+                    <mat-hint>Max of 25 Characters</mat-hint>
+                    <input formControlName = "removeGameName" matInput>
+                    </mat-form-field>
+                
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+                    <input formControlName = "removeUsername" matInput >
+                    </mat-form-field>
+
+                <button mat-stroked-button color="primary" (click)="constructRemoveLine()">Submit</button>
+            </div>
+        </mat-card>
+
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Add Credit</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Username</mat-label>
+                    <mat-hint>Max of 15 Characters</mat-hint>
+                    <input formControlName = "addCreditUsername" matInput>
+                    </mat-form-field>
+                
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Amount</mat-label>
+                    <mat-hint>Max of $1000</mat-hint>
+                    <input formControlName = "addCreditAmount" matInput >
+                    </mat-form-field>
+
+                <button mat-stroked-button color="primary" (click)="constructAddCreditLine()">Submit</button>
+             </div>
+        </mat-card>
+
+        <mat-card fxStretch = "20%">
+            <mat-card-title>Auctionsale</mat-card-title>
+            <span class="material-icons">
+                filter_vintage
+                </span>
+            <mat-slide-toggle formControlName = "auctionsaleToggle" (change)="constructAuctionSaleLine()"></mat-slide-toggle>
+            <span class="material-icons" >
+                filter_vintage
+                </span>
+        </mat-card>
+           
+    </div>
+    
+</mat-card>

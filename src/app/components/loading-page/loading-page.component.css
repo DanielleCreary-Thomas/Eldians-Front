@@ -1,0 +1,21 @@
+.mainTitle{
+    padding-top: 30px;
+    font-size: 70px;
+    padding-bottom: 30px;
+    padding-left: 420px;
+}
+.stitle{
+    padding-left: 350px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.etitle{
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.label{
+    font-size: 20px;
+}
+.filebox{
+    padding-left: 50px;
+}

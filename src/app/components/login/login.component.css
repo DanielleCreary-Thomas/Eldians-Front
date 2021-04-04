@@ -1,0 +1,28 @@
+.title{
+    padding-top:20px;
+    font-size:30px;
+    padding-bottom: 30px;
+}
+
+.usernameField{
+    padding-left:235px;
+}
+.rolesField{
+    padding-left:130px;
+    color: crimson;
+}
+.page{
+    padding-top: 250px;
+}
+.label{
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+.stitle{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.fileCard{
+    padding-top:10px;
+}

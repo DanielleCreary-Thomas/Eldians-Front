@@ -1,0 +1,33 @@
+.inputLabel{
+    font-size: 20px;
+}
+.label{
+    padding-right: 25px;
+}
+.gridCards{
+    background-color: mediumpurple;
+}
+.gridTextColor{
+    color:white;
+}
+.gridTextColorBottom{
+    color:rebeccapurple;
+    font-size: 13px;
+}
+.gridTextColorTop{
+    color:rebeccapurple;
+    padding-left: 110px;
+    font-size: 10px;
+}
+.gridTextColorPrice{
+    color:white;
+    font-size: 20px;
+}
+.gridTextColorDiscount{
+    color: #edb8ff;
+    font-size: 13px;;
+}
+.gridCardIcon{
+    font-size: 80px;
+    padding-left: 20px;
+}

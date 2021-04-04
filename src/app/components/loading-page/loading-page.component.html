@@ -1,0 +1,45 @@
+<form [formGroup] = "loadingPage" fxFill>
+    <div fxStretch = "20" class="mainTitle">
+            <div >
+                <mat-label class="mainTitle">Eldians</mat-label>
+            </div>
+    </div>
+    <div fxStretch = "80">
+        <div fxFill>
+            <mat-card fxFlex = "50" >
+                <mat-card-title class="stitle">Start Day</mat-card-title>
+                <div fxLayout = "row" FxLayoutAlign = "center center">
+                    <div class="filebox">
+                        <label class="label" for="file">Choose Games File</label>
+                        <input type="file"
+                            id="file"
+                            (change)="handleGameInput($event.target.files)">
+                    </div>
+                    <div>
+                        <label class="label" for="file">Choose Users File</label>
+                        <input type="file"
+                            id="file"
+                            (change)="handleUserInput($event.target.files)">
+                    </div>
+                    <div>
+                        <label class="label" for="file">Choose Marketplace File</label>
+                        <input type="file"
+                            id="file"
+                            (change)="handleMarketInput($event.target.files)">
+                    </div>
+                </div>
+                
+            </mat-card>
+            <mat-card fxFlex = "50" >
+                
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <mat-card-title class="etitle">End Day</mat-card-title>
+                    <button mat-raised-button color="primary">Goodbye</button>
+                    <a [href]="download">click here to download</a>
+                </div>
+                
+
+            </mat-card>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,60 @@
+<mat-card [formGroup] = "marketplaceForm" fxFill>
+    <div fxFlex = "100%"> 
+        <mat-card fxStretch = "50%" *ngIf="this.dataService.isUserBuyStandard()">
+            <mat-card-title>Buy</mat-card-title>
+                <div fxLayout = "row" fxLayoutAlign="start center">
+                    <mat-form-field appearance="fill" class="label">
+                        <mat-label>Sellers</mat-label>
+                        <mat-select formControlName ="buySeller">
+                            <mat-option *ngFor="let topping of this.dataService.getSellers()" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill"  class ="label" >
+                        <mat-label>Game</mat-label>
+                        <mat-select formControlName = "buyGame">
+                            <mat-option *ngFor="let topping of this.dataService.getGamesForSeller(this.marketplaceForm.value['buySeller'])" [value]="topping">{{topping['name']}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div appearance="fill" class ="label" >
+
+                        <mat-label class="textSize">${{this.marketplaceForm.value['buyGame']?this.marketplaceForm.value['buyGame']['price']:'N/A'}}</mat-label>
+                    </div>
+
+                    <button (click)="constructBuyLine()" mat-stroked-button color="primary">Submit</button>
+                </div>
+        </mat-card>
+
+        <mat-card>
+            <mat-divider></mat-divider>
+        </mat-card>
+
+        <mat-card fxStretch = "50%" *ngIf="this.dataService.isUserSellStandard()">
+            <mat-card-title>Sell</mat-card-title>
+            <div fxLayout = "row" fxLayoutAlign="start center">
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Game Name</mat-label>
+                    <input matInput formControlName = "sellGame">
+                    <mat-hint>Max 25 Characters</mat-hint>
+                    </mat-form-field>
+            
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Game Price</mat-label>
+                    <input matInput formControlName = "sellPrice">
+                    <mat-hint>Max of $999.99</mat-hint>
+
+                    </mat-form-field>
+                    
+                <mat-form-field appearance="fill" class ="label" >
+                    <mat-label>Discount</mat-label>
+                    <input matInput formControlName = "sellDiscount" >
+                    <mat-hint>Max of 90</mat-hint>
+                    </mat-form-field>
+                
+
+            <button (click)="constructSellLine()" mat-stroked-button color="primary">Submit</button>
+        </div>
+        </mat-card>
+    </div>
+</mat-card>

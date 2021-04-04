@@ -1,0 +1,42 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<form [formGroup]="mainForm" fxLayout="column" fxLayoutAlign="space-between stretch" class="page">
+
+
+    <div>
+        <p>
+            <mat-toolbar class="mainTitle">
+                <mat-toolbar-row>
+                    <span>ELDIANS</span>
+                    <span class="spacer"></span>
+                    <button (click)="logout()" mat-icon-button class="material-icons" >
+                        logout
+                    </button>
+                </mat-toolbar-row>
+                <mat-toolbar-row>
+                    <span class="subtitle">Welcome Children of Ymir</span>
+                </mat-toolbar-row>
+            </mat-toolbar>
+            
+        </p>
+        
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Account" >
+                <app-account></app-account>
+            </mat-tab>
+
+            <mat-tab label="Marketplace">
+                 <app-marketplace></app-marketplace>
+            </mat-tab>
+
+            <mat-tab label="History">
+                 <app-history></app-history>
+            </mat-tab>
+
+            <mat-tab label="Admin" *ngIf="this.dataService.isUserAdmin()">
+                 <app-admin></app-admin>
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</form>
+

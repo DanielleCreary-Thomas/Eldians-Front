@@ -1,0 +1,98 @@
+<form [formGroup]="accountForm" fxFill>
+    <mat-card fxFlex = "50%">
+        <div fxFill>
+            <div fxStretch = "20%">
+                <mat-card-title-group>
+                    <mat-card-title>{{this.dataService.loggedInUser}}</mat-card-title>
+                    <mat-card-subtitle>{{this.dataService.getUser()['type']}}</mat-card-subtitle>
+                </mat-card-title-group>
+            </div>
+            <div fxStretch = "40%">
+                <mat-card fxLayout = "row" fxLayoutAlign="space-evenly center" >
+                    <mat-card-content>
+                        <mat-card-subtitle>Account Balance</mat-card-subtitle>
+                        <mat-progress-spinner
+                            class="example-margin"
+                            [color]="color"
+                            [mode]="mode"
+                            [value]="value">
+                        </mat-progress-spinner>
+                    </mat-card-content>
+                    <mat-card-content>{{this.dataService.getUser()['accountBalance']}}/999999.99</mat-card-content>
+                    <div>
+                        <input class = "inputLabel" formControlName="addCredit" matInput placeholder="Add Credit">
+                        <button (click)="constructAddCreditLine()" mat-raised-button color="primary">Submit</button>
+                    </div>
+                  </mat-card>  
+            </div>
+            <div fxStretch = "20%">
+                <mat-card fxStretch = "20%">
+                    <mat-card-title>Gift</mat-card-title>
+                    <div fxLayout = "row" fxLayoutAlign="start center">
+                        <mat-form-field appearance="fill" class ="label" >
+                            <mat-label>Recepient Username</mat-label>
+                            <mat-hint>Max of 15 Characters</mat-hint>
+                            <input formControlName = "giftRecipient" matInput>
+                            </mat-form-field>
+                            
+                        <mat-form-field appearance="fill" class ="label" >
+                            <mat-label>Game Name</mat-label>
+                            <mat-hint>Max of 25 Characters</mat-hint>
+                            <input formControlName = "giftGameName" matInput >
+                            </mat-form-field>
+        
+                        <button (click)="constructGiftLine()" mat-stroked-button color="primary">Submit</button>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxStretch = "20%">
+                <mat-card fxStretch = "20%">
+                    <mat-card-title>Remove Game</mat-card-title>
+                    <div fxLayout = "row" fxLayoutAlign="start center">
+                        <mat-form-field appearance="fill" class ="label" >
+                            <mat-label>Game Name</mat-label>
+                            <mat-hint>Max of 25 Characters</mat-hint>
+                            <input formControlName = "removeGameName" matInput>
+                            </mat-form-field>
+                        <button (click)="constructRemoveLine()" mat-stroked-button color="primary">Submit</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </mat-card>
+        
+    <mat-card fxFlex = "50%">
+        <mat-card-title>Inventory</mat-card-title>
+        <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile
+            *ngFor="let tile of tiles"
+            [colspan]="cols"
+            [rowspan]="rows">
+    <mat-card class="gridCards gridTextColor">
+        <div mat-card-avatar class="material-icons gridCardIcon">
+            videogame_asset</div>
+        <mat-card-header>
+            <mat-card-title >{{tile['name']}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-label class="gridTextColorPrice">${{tile['price']}}</mat-label>
+            <mat-label class="gridTextColorDiscount" *ngIf="tile['discount'] > 0"> -{{tile['discount']}}% off!</mat-label>
+        </mat-card-content>
+        <mat-card-content>
+            <mat-card-subtitle class="gridTextColorBottom">{{tile['supplierID']}}</mat-card-subtitle>
+            <mat-card-subtitle class="gridTextColorTop">{{tile['uniqueID']}}</mat-card-subtitle>
+        </mat-card-content>
+            
+        <!-- <mat-card-actions>
+            <mat-label class="gridTextColorBottom">{{tile['supplierID']}}</mat-label>
+            <mat-label class="gridTextColorTop">{{tile['uniqueID']}}</mat-label>
+
+        </mat-card-actions> -->
+    </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    </mat-card>
+       
+    
+</form>
