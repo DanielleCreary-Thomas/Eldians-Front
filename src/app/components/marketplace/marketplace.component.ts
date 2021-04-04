@@ -70,7 +70,9 @@ export class MarketplaceComponent implements OnInit {
     var name = this.dataService.encodeGamename(this.marketplaceForm.value.sellGame)
     var seller = this.dataService.encodeUsername(this.dataService.loggedInUser)
     var discount = this.dataService.encodeDiscount(this.marketplaceForm.value.sellDiscount)
-    var price = this.dataService.encodePrice(this.marketplaceForm.value.sellPrice)
+    var sellprice = this.marketplaceForm.value.sellPrice.includes('.')?this.marketplaceForm.value.sellPrice:this.marketplaceForm.value.sellPrice+'.00';
+    var price = this.dataService.encodePrice(sellprice)
+
     if(name != "" && seller != "" && discount != "" && price != ""){
       line+="03 "+name+" "+seller+" "+discount+" "+price
       this.dataService.dailyFileContents.push(line);
